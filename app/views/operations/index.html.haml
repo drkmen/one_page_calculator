@@ -1,0 +1,11 @@
+.calculator
+  .index
+    = form_with url: '/operations', remote: true do
+      = text_field_tag :arg_a, nil, placeholder: :a
+      = text_field_tag :arg_b, nil, placeholder: :b
+      %br
+
+      - Operation::SIGNS.each do |sym|
+        = submit_tag sym, data: { disable_with: 'Submitting...' }
+
+    = text_area_tag :result, nil, disabled: true, rows: 10, cols: 100

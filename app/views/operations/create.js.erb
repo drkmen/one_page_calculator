@@ -1,0 +1,10 @@
+text_area = document.getElementById('result');
+
+<% if @error %>
+  text_area.value = '<%= j(@error[:message]) %>';
+<% else %>
+  text_area.value = '<%= j("Operation: #{@result[:operation]} \n") %>';
+  text_area.value += '<%= j("Result: #{@result[:result]} \n") %>';
+  text_area.value += '<%= j("ID: #{@result[:id]} \n") %>';
+  text_area.value += '<%= j("Count: #{@result[:count]} \n") %>';
+<% end %>
